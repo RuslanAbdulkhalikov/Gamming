@@ -6,9 +6,9 @@ def _encoding(word):
     for i in temp_result: binary_code += i + ' '
     bincode_copy = [int(i) for i in binary_code.replace(' ', '')]
     gamma = random.choices(range(0, 2), k = len(bincode_copy))
-    print('Гамма:', gamma)
+    print('gamma:', gamma)
 
-    return f'Шифрованный текст: {[1 if not a == b else 0 for a, b in zip(bincode_copy, gamma)]}'
+    return f'cipher text: {[1 if not a == b else 0 for a, b in zip(bincode_copy, gamma)]}'
 
 
 def _decoding(gamma, check_sum):
@@ -21,8 +21,8 @@ def _decoding(gamma, check_sum):
         a += 7
         b += 7
 
-    return f'Результат: {one_res}'
+    return f'result: {one_res}'
 
-print(_encoding(input('Исходный текст: ')))
-print(_decoding(input('Гамма: ').replace('[', '').replace(']', '').split(", "),
-              input('Шифрованный текст: ').replace('[', '').replace(']', '').split(", ")))
+print(_encoding(input('input text: ')))
+print(_decoding(input('gamma: ').replace('[', '').replace(']', '').split(", "),
+              input('cipher text: ').replace('[', '').replace(']', '').split(", ")))
